@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ID</title>
+    <link rel="stylesheet" th:href="@{/css/generatedStyle.css}" />
+</head>
+
+<body>
+
+<div id="container">
+    <div id="content">
+        <h3>Your appointment identification:</h3>
+        <p id="generatedNum" th:text="${serialNumber}"></p>
+        <a th:href="@{/cancel}" class="button">Cancel appointment</a>
+        <br>
+        <a th:href="@{/check}" class="button">Check the time left</a>
+    </div>
+</div>
+
+</body>
+</html>

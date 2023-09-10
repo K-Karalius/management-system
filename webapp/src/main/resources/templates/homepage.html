@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" th:href="@{/css/homepageStyle.css}" media="screen"/>
+</head>
+
+<body>
+
+    <h1>Appointment booking:</h1>
+    <form id="clientForm" th:action="@{/create}" method="post" th:object="${clientRequest}">
+        <label for="firstName"> First Name:</label>
+        <input type="text" id="firstName" name="firstName" th:field="*{firstName}" pattern="^(?!\s*$)[A-Za-z\s]+$"
+               title="Your first name without special characters." required>
+        <br><br>
+        <label for="lastName"> Last Name:</label>
+        <input type="text" id="lastName" name="lastName" th:field="*{lastName}" pattern="^(?!\s*$)[A-Za-z\s]+$"
+               title="Your last name without special characters." required>
+        <br><br>
+        <label for="specialistList">Select a Specialist:</label>
+        <select id="specialistList" name="specialistFullName" required>
+            <option th:each="specialist : ${specialists}" th:value="${specialist}" th:text="${specialist}"></option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="SUBMIT">
+    </form>
+
+    <br>
+    <a th:href="@{/cancel}" class="button">Cancel appointment</a>
+    <br>
+    <a th:href="@{/check}" class="button">Check the time left</a>
+
+</body>
+
+</html>

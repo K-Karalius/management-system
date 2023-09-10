@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Specialist</title>
+    <link rel="stylesheet" href="/css/specialistPageStyle.css">
+</head>
+<body>
+    <input type="hidden" id="username" th:value="${usernameIn}">
+    <h1>YOUR CLIENTS:</h1>
+
+    <label>Started: </label>
+    <label id="startedAppointment" th:text="${startedAppointment}"></label>
+
+    <br>
+    <label>Start selected meeting or end current: </label>
+
+    <form th:action="@{/specialistPage/updateClient}" method="post">
+        <input type="hidden" name="_method" value="PUT"> <!-- Simulate PUT request -->
+        <input type="submit" value="Start/end">
+        <table id="clients">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Appointment</th>
+                    <th>Serial number</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr th:each="client : ${clientDisplay}">
+                    <td th:text="${client.firstName}"></td>
+                    <td th:text="${client.lastName}"></td>
+                    <td th:text="${client.appointmentStart}"></td>
+                    <td th:text="${client.serialNumber}"></td>
+                    <td>
+                        <input type="radio" name="selectedSerialNumber" th:value="${client.serialNumber}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

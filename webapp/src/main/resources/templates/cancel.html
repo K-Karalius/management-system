@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancel</title>
+    <link rel="stylesheet" th:href="@{/css/checkOrCancel.css}" />
+</head>
+<body>
+
+    <div id="container">
+        <h3>CANCEL</h3>
+        <form id="serialNumberForm" th:action="@{/cancel/submit}" method="post">
+            <label for="serialNumber">Serial number: </label>
+            <input type="text" id="serialNumber" name="cancelSerial" required>
+            <input type="hidden" name="_method" value="PUT"> <!-- Simulate PUT request -->
+            <br>
+            <input type="submit" value="SUBMIT">
+        </form>
+        <br>
+        <p id="message" th:text="${cancelMessage}"></p>
+    </div>
+</body>
+
+</html>

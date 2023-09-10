@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Check</title>
+    <link rel="stylesheet" th:href="@{/css/checkOrCancel.css}" />
+</head>
+<body>
+    <div id="container">
+        <h3>Check</h3>
+        <form id="serialNumberForm" th:action="@{/check/submit}" method ="post">
+            <label for="checkSerial">Serial number: </label>
+            <input type="text" id="checkSerial" name="checkSerial" required>
+            <br>
+            <input type="submit" value="SUBMIT">
+        </form>
+        <br>
+        <p id="message" th:text="${checkMessage}"></p>
+    </div>
+</body>
+
+</html>

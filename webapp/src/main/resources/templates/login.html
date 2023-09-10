@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LOG IN</title>
+
+    <link rel="stylesheet" href="/css/loginStyle.css">
+</head>
+<body>
+
+
+<h1>Sign in as specialist</h1>
+<form id="signInForms" th:action="@{/login/submit}" method="post" th:object="${specialistIn}">
+    <label for="username"> Username:</label>
+    <input type="text" id="username" name="username" th:field="*{username}" required>
+    <br>
+    <br>
+    <label for="password"> Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required>
+    <br>
+    <br>
+    <input type="submit" value="SIGN IN">
+</form>
+
+</body>
+</html>
